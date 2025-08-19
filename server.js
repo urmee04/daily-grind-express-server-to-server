@@ -8,6 +8,11 @@ const app = express();
 //define the port to run the server
 const port = 3000;
 
+//redirect to api/fun-fact automatically
+app.get("/", (req, res)=> {
+    res.redirect("api/fun-fact");
+});
+
 //create a new GET route at the path /api/fun-fact
 
 app.get("/api/fun-fact", async (req, res) => {

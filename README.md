@@ -39,7 +39,7 @@ daily-grind-express-server-to-server/
 3. Start the server:
 
    `npm start`
-
+---
 #### Reflection Questions
 
 **Why was it important to re-format the data from the Useless Facts API before sending it to your own client? What are the benefits of an API providing a clean, minimal response?**

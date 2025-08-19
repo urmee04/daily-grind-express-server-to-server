@@ -38,21 +38,21 @@ daily-grind-express-server-to-server/
 
 3. Start the server:
 
-  `npm start`
+   `npm start`
 
 #### Reflection Questions
 
-1. **Why was it important to re-format the data from the Useless Facts API before sending it to your own client? What are the benefits of an API providing a clean, minimal response?**
+**Why was it important to re-format the data from the Useless Facts API before sending it to your own client? What are the benefits of an API providing a clean, minimal response?**
 
-I reformatted the data because the Useless Facts api returns more fields than I actually needed. My application only cared about the fact itself, not the other metadata. By returning a clean, minimal response, I make it easier for the client to consume the data without having to filter or parse unnecessary details. This improves performance, reduces confusion, and makes my api more user friendly.
+I reformatted the data because the Useless Facts api returns more fields than I actually needed. My application only cared about the fact itself, not the other        metadata. By returning a clean, minimal response, I make it easier for the client to consume the data without having to filter or parse unnecessary details. This improves performance, reduces confusion, and makes my api more user friendly.
 
 
-2. **In the catch block, why is it better to send a generic error message to the client instead of the actual error object from axios?**
+**In the catch block, why is it better to send a generic error message to the client instead of the actual error object from axios?**
 
 In my opinion, sending a generic error message is safer and more professional. The axios error object can contain technical details that the client doesn’t need and might even expose information about our server or the external API. By keeping the error message simple, like 'Could not fetch fun fact' we protect sensitive details, avoid confusing the client with unnecessary information, and maintain a consistent error response.
 
 
-3. **How might you modify this application to get a fact in a different language if the external API supported it (e.g., with a query parameter like ?language=de)?**
+**How might you modify this application to get a fact in a different language if the external API supported it (e.g., with a query parameter like ?language=de)?**
 
 If I wanted to support multiple languages, I would modify my GET route to accept a query parameter from the client, like /api/fun-fact?lang=de. Inside the code, I would pass that parameter along to the external api request
 
@@ -60,4 +60,4 @@ If I wanted to support multiple languages, I would modify my GET route to accept
  const lang = req.query.lang || "en"; 
  const response = await axios.get(`https://uselessfacts.jsph.pl/api/v2/facts/random?language=${lang}`);
 ``` 
-This way, the client can choose the language they want and my server would just forward it to the Useless Facts API.
+This way, the client can choose the language they want and my server would just forward it to the Useless Facts api.
